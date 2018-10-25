@@ -1,0 +1,9 @@
+<h1> Welcome <%= @user.full_name %> </h1>
+<p>
+  We have your following details <br />
+  Your email id is : <%= @user.email %> <br />
+  Your password is : <%= @user.password %> <br />
+
+  <p>To access your free account, please click <b><%= link_to 'HERE', confirm_api_v1_users_url(token: @user.confirmation_token), method: :POST %></b>. </p>
+  <p> Please confirm within 30 days before the above link expires </p>
+</p>
