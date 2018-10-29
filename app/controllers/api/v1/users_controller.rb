@@ -1,7 +1,7 @@
 module Api::V1
   class UsersController < ApplicationController
     before_action :set_user, only: [:show, :update, :get_following, :get_followers, :get_user_recipes,
-                                    :is_following]
+                                    :is_following, :follow_user, :unfollow_user]
 
     def new
       user = User.new
@@ -75,11 +75,13 @@ module Api::V1
     def follow_user
       other_user = User.find_by(id: params[:other_user])
       @user.follow(other_user)
+      render json: other_user
     end
 
     def unfollow_user
-      other_user = User.find_by(id: parms[:other_user])
+      other_user = User.find_by(id: params[:other_user])
       @user.unfollow(other_user)
+      render json: other_user
     end
 
     def get_user_recipes

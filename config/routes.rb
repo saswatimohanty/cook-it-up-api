@@ -11,8 +11,8 @@ Rails.application.routes.draw do
         end
         member do
           get :get_following, :get_followers, :get_user_recipes, :is_following
-          post :follow_user
-          delete :unfollow_user
+          get :follow_user
+          get :unfollow_user
         end
       end
       post 'user_token' => 'user_token#create'
