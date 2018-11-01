@@ -33,7 +33,7 @@ module IdeaboardApi
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'http://localhost:3000'
-        resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options]
+        resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options, :patch]
       end
     end
   end
